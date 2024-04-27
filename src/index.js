@@ -3,7 +3,6 @@ const express = require("express");
 const { PORT } = require('./config/serverConfig');
 const bodyparser = require("body-parser"); //Middleware
 
-
 const setupAndStartServer = async () => {
 
     const app = express();

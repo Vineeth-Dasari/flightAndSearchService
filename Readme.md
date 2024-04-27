@@ -19,15 +19,7 @@ PORT=3000
 }
 
 Once you've added your db config as listed above, go to the src folder from your terminal and execute npx sequelize db:create
-
-
-
-
-
-
-
-
-
+git
 
 
 / This is for feature based architecture but we are focusing on role based we are working on above one

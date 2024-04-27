@@ -17,11 +17,8 @@ PORT=3000
     "dialect": "mysql"
 }
 }
-<<<<<<< HEAD
 
 Once you've added your db config as listed above, go to the src folder from your terminal and execute npx sequelize db:create
-=======
->>>>>>> a949b0c22276309274f889d4bb54758931972555
 
 
 

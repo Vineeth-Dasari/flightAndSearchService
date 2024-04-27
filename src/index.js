@@ -3,6 +3,8 @@ const express = require("express");
 const { PORT } = require('./config/serverConfig');
 const bodyparser = require("body-parser"); //Middleware
 
+//const cityRespository = require('./repository/city_repository');
+
 const setupAndStartServer = async () => {
 
     const app = express();
@@ -13,9 +15,11 @@ const setupAndStartServer = async () => {
     app.listen(PORT, () => {
         console.log(`Server started at port = ${PORT}`);
         //console.log(process.env); // Just for tracking our varibales in proces.env object.
+        
+        //const repo = new cityRespository();
+        //repo.createCity({name : "Hyderabad"});
+        //repo.deelteCity(1);
     })
-
-
 
 }
 

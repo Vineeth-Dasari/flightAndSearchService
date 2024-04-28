@@ -1,14 +1,16 @@
+const { where } = require('sequelize');
 const {City} = require ('../models/index');
 
 class cityRespository {
 
-//https://sequelize.org/docs/v6/core-concepts/model-querying-basics/
-// For creating users and deleting users syntax we have gone throw above link for the reference.
+    //https://sequelize.org/docs/v6/core-concepts/model-querying-basics/
+    // For creating users and deleting users syntax we have gone throw above link for the reference.
     
     async createCity( {name} ){
-
         try{
-            const city = await City.create({name});
+            const city = await City.create({
+                name
+            });
             return city;
         } catch (error) {
             throw {error};
@@ -16,13 +18,32 @@ class cityRespository {
     }
 
     async deelteCity( {cityId} ){   //cityid is actually is id but here we are mimiking
-
         try{
             await City.destroy( {
                 where : {                       //similarly where clause we are using search in reference
                     id : cityId
                 }  
             });
+        } catch (error) {
+            throw {error};
+        }
+    }
+
+    async updateCity(cityId, data){
+        try{
+            const city = await City.update({data,
+                where : { id : cityId}
+            });
+            return city;
+        } catch (error) {
+            throw {error};
+        }
+    }
+
+    async getCity(cityId){
+        try{
+            const city = await City.findByPk(cityId);
+            return city;
         } catch (error) {
             throw {error};
         }

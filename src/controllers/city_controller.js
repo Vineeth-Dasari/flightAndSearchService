@@ -1,14 +1,12 @@
-const cityService = require("../services/index");
+const {CityService} = require("../services/index");
 
 /*
  data -> req.body
  Inoder to use cityService we need to create cityService object
 */
+const cityService = new CityService(); 
 
-const cityService = new cityService(); 
-
-
-const create = async (res, req) => {
+const create = async (req, res) => {
     try{
         const city = await cityService.createCity(req.body);
         return res.status(201).json({
@@ -29,7 +27,7 @@ const create = async (res, req) => {
 }
 
 // ../city/:id
-const destroy =async (res, req) => {
+const destroy =async (req, res) => {
     try{
         const city = await cityService.createCity(req.params.id);
         return res.status(200).json({
@@ -51,7 +49,7 @@ const destroy =async (res, req) => {
 
 
 //  ../city/:id
-const get =async (res, req) => {
+const get =async (req, res) => {
     try{
         const city = await cityService.createCity(req.params.id);
         return res.status(200).json({
@@ -74,7 +72,7 @@ const get =async (res, req) => {
 
 
 // ../city/:id  ->carries req.body     patch request
-const update =async (res, req) => {
+const update =async (req, res) => {
     try{
         const city = await cityService.createCity(req.params.id, req.body);
         return res.status(200).json({
@@ -94,3 +92,5 @@ const update =async (res, req) => {
         })
     }
 }
+
+module.exports = {create,destroy,update,get};

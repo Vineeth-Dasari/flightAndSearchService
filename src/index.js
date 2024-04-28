@@ -2,6 +2,7 @@ const express = require("express");
 //require('dotenv').config()  // this requires the dotenv variable we have setup
 const { PORT } = require('./config/serverConfig');
 const bodyparser = require("body-parser"); //Middleware
+const ApiRoutes = require('./routes/index');
 
 //const cityRespository = require('./repository/city_repository');
 
@@ -11,6 +12,8 @@ const setupAndStartServer = async () => {
     
     app.use(bodyparser.json());
     app.use(bodyparser.urlencoded({extended : true}));
+
+    app.use('/api',ApiRoutes);   //THis applies to all the incomming requests the initail one /api/***/**/*/*/
 
     app.listen(PORT, () => {
         console.log(`Server started at port = ${PORT}`);

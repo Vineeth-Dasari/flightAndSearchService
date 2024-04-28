@@ -1,12 +1,12 @@
 const { where } = require('sequelize');
-const {City} = require ('../models/index');
+const { City } = require ('../models/index');
 
-class cityRespository {
+class CityRepository {
 
     //https://sequelize.org/docs/v6/core-concepts/model-querying-basics/
     // For creating users and deleting users syntax we have gone throw above link for the reference.
     
-    async createCity( {name} ){
+    async createCity({name}) {
         try{
             const city = await City.create({
                 name
@@ -56,4 +56,4 @@ class cityRespository {
 
 }
 
-module.exports = cityRespository;
+module.exports = CityRepository;

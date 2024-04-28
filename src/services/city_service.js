@@ -1,14 +1,14 @@
-const { cityRespository } =  require('../repository/index');    // here this service can be called from index.js because this can be easy and helpful for us to take all the repository values from a single file.
+const { CityRepository } =  require('../repository/index');    // here this service can be called from index.js because this can be easy and helpful for us to take all the repository values from a single file.
 
 
-class cityService{
+class CityService{
     constructor(){
-        this.cityRespository = new cityRespository();              // here we used constructor because everytime we call a new object new table is created so we need to use constructor to add the values on the exxisting one.
+        this.cityRepository = new CityRepository();              // here we used constructor because everytime we call a new object new table is created so we need to use constructor to add the values on the exxisting one.
     }
 
     async createCity(data) {
         try{
-            const city = await this.cityRespository.createCity(data);
+            const city = await this.cityRepository.createCity(data);
             return city;
         }catch(error){
             console.log("Error at service layer");
@@ -18,7 +18,7 @@ class cityService{
 
     async deleteCity(id) {
         try{
-            const response = await this.cityRespository.deleteCity(id);
+            const response = await this.cityRepository.deleteCity(id);
             return response;
         }catch(error){
             console.log("Error at service layer");
@@ -26,9 +26,9 @@ class cityService{
         }
     }
 
-    async updateCity({cityId,data}) {
+    async updateCity(cityId,data) {
         try{
-            const city = await this.cityRespository.updateCity({cityId,data});
+            const city = await this.cityRepository.updateCity({cityId,data});
             return city;
         }catch(error){
             console.log("Error at service layer");
@@ -38,7 +38,7 @@ class cityService{
 
     async getCity(cityId) {
         try{
-            const city = await this.cityRespository.getCity(cityId);
+            const city = await this.cityRepository.getCity(cityId);
             return city;
         }catch(error){
             console.log("Error at service layer");
@@ -47,3 +47,4 @@ class cityService{
     }
 }
 
+module.exports = CityService;

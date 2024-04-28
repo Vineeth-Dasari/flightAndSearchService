@@ -13,11 +13,12 @@ class cityRespository {
             });
             return city;
         } catch (error) {
+            console.log("Error at repository layer");
             throw {error};
         }
     }
 
-    async deelteCity( {cityId} ){   //cityid is actually is id but here we are mimiking
+    async deleteCity( {cityId} ){   //cityid is actually is id but here we are mimiking
         try{
             await City.destroy( {
                 where : {                       //similarly where clause we are using search in reference
@@ -25,6 +26,7 @@ class cityRespository {
                 }  
             });
         } catch (error) {
+            console.log("Error at repository layer");
             throw {error};
         }
     }
@@ -36,6 +38,7 @@ class cityRespository {
             });
             return city;
         } catch (error) {
+            console.log("Error at repository layer");
             throw {error};
         }
     }
@@ -45,6 +48,7 @@ class cityRespository {
             const city = await City.findByPk(cityId);
             return city;
         } catch (error) {
+            console.log("Error at repository layer");
             throw {error};
         }
     }

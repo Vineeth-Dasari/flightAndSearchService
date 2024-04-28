@@ -18,11 +18,11 @@ class CityRepository {
         }
     }
 
-    async deleteCity( {cityId} ){   //cityid is actually is id but here we are mimiking
+    async deleteCity( cityid ){   //cityid is actually is id but here we are mimiking
         try{
             await City.destroy( {
                 where : {                       //similarly where clause we are using search in reference
-                    id : cityId
+                    id : cityid
                 }  
             });
             return true;
@@ -33,10 +33,22 @@ class CityRepository {
     }
 
     async updateCity(cityId, data){
-        try{
-            const city = await City.update({data,
-                where : { id : cityId}
-            });
+        try {
+            // The below approach also works but will not return updated object
+            // if we are using Pg then returning: true can be used, else not
+            // const city = await City.update(data, {
+            //     where: {
+            //         id: cityId
+            //     },
+            //      
+            // });
+            // for getting updated data in mysql we use the below approach
+            const city = await City.findByPk(cityId);
+            
+            city.name = data.name;
+            
+            await city.save();
+            
             return city;
         } catch (error) {
             console.log("Error at repository layer");

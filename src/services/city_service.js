@@ -3,7 +3,7 @@ const { cityRespository } =  require('../repository/index');    // here this ser
 
 class cityService{
     constructor(){
-        this.cityRespository = new cityRespository();
+        this.cityRespository = new cityRespository();              // here we used constructor because everytime we call a new object new table is created so we need to use constructor to add the values on the exxisting one.
     }
 
     async createCity(data) {

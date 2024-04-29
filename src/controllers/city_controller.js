@@ -93,4 +93,26 @@ const update =async (req, res) => {
     }
 }
 
-module.exports = {create,destroy,update,get};
+const getAll =async (req, res) => {
+    try{
+        const city = await cityService.getAll();
+        return res.status(200).json({
+            data : city,
+            success : true,
+            message : "Successfully fletched all the cities",
+            err : {}
+        })
+
+    }catch(error){
+        console.log(error);
+        return res.status(500).json({
+            data : {},
+            success : false,
+            message : "Unable to fletch all the cities",
+            err : error
+        })
+    }
+}
+
+
+module.exports = {create,destroy,update,get, getAll};

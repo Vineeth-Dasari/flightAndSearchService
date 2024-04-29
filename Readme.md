@@ -21,6 +21,15 @@ PORT=3000
 Once you've added your db config as listed above, go to the src folder from your terminal and execute npx sequelize db:create
 git
 
+## Tables
+    -City id, name, created_at, updated_at
+
+    -Airport id, name, address, city_id, created_at, updated_at
+
+        --> Relationship -> City has many airports and Airport belongs to a city (one to many)
+        
+
+
 
 / This is for feature based architecture but we are focusing on role based we are working on above one
 

@@ -5,7 +5,7 @@ const bodyparser = require("body-parser"); //Middleware
 const ApiRoutes = require('./routes/index');
 
 const db = require('./models/index');
-const {City, Airports} = require('./models/index');
+const {City, Airports, Airplane} = require('./models/index');
 
 //const cityRespository = require('./repository/city_repository');
 
@@ -38,6 +38,9 @@ const setupAndStartServer = async () => {
         //         id : 9
         //     }
         // });
+        // await Airplane.create({
+        //     modelNumber : 'Bombardier CRJ'
+        // })
 
         // const airports = await onecity.getAirports();
         // console.log(airports);

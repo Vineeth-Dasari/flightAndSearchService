@@ -53,7 +53,6 @@ class CrudRespository {
                 where: {
                     id: modelId
                 },
-                 
             });
             return result;
         } catch (error) {
